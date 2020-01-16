@@ -1,4 +1,4 @@
-# DateTimeUtils 
+# DateTime
 
 This library is a package of functions that let you manipulate objects and or java date string. it combine the most common functions used when managing dates under android, such as converting a mysql /sqlLite date to a Date object and vis-versa etc.
 

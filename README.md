@@ -3,7 +3,8 @@
 This library is a package of functions that let you manipulate objects and or java date string. it combine the most common functions used when managing dates under android, such as converting a mysql /sqlLite date to a Date object and vis-versa etc.
 
 This library is available under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
-This library was forked from [Thunder413's liblary] (https://github.com/thunder413/DateTimeUtils).
+
+This library was forked from [Thunder413's liblary](https://github.com/thunder413/DateTimeUtils).
 
 
 ## Usage
@@ -24,7 +25,7 @@ allprojects {
 And then simply add the following line to the `dependencies` section of your app module `build.gradle` file:
 
 ```groovy
-implementation 'com.github.thunder413:DateTimeUtils:3.0'
+implementation 'com.github.augustusiam:DateTime:1.0.0'
 ```
 
 ## Examples
@@ -34,7 +35,7 @@ implementation 'com.github.thunder413:DateTimeUtils:3.0'
 ``setTimeZone`` allow you to define your time zone by default it's ``UTC``
 
 ```java
-DateTimeUtils.setTimeZone("UTC");
+DateTime.setTimeZone("UTC");
 ```
 ### formatDate
 
@@ -44,18 +45,18 @@ DateTimeUtils.setTimeZone("UTC");
 
 ```java
 // MySQL/SQLite dateTime example
-Date date = DateTimeUtils.formatDate("2017-06-13 04:14:49");
+Date date = DateTime.formatDate("2017-06-13 04:14:49");
 // Or also with / separator
-Date date = DateTimeUtils.formatDate("2017/06/13 04:14:49");
+Date date = DateTime.formatDate("2017/06/13 04:14:49");
 // MySQL/SQLite date example
-Date date = DateTimeUtils.formatDate("2017-06-13");
+Date date = DateTime.formatDate("2017-06-13");
 // Or also with / separator
-Date date = DateTimeUtils.formatDate("2017/06/13");
+Date date = DateTime.formatDate("2017/06/13");
 ```
 #### Date object to date string MySQL/SQLite
 
 ```java
-String date = DateTimeUtils.formatDate(new Date());
+String date = DateTime.formatDate(new Date());
 ```
 
 #### timeStamp to Date object
@@ -64,9 +65,9 @@ By default it will considere given timeStamp in milliseconds but in case you did
 
 ```java
 // Using milliseconds
-Date date = DateTimeUtils.formatDate(1497399731000);
+Date date = DateTime.formatDate(1497399731000);
 // Using seconds (Server timeStamp)
-Date date = DateTimeUtils.formatDate(1497399731,DateTimeUnits.SECONDS);
+Date date = DateTime.formatDate(1497399731,DateTimeUnits.SECONDS);
 ```
 
 ### formatWithStyle
@@ -76,19 +77,19 @@ Date date = DateTimeUtils.formatDate(1497399731,DateTimeUnits.SECONDS);
 #### Date object to localized date
 
 ```java
-DateTimeUtils.formatWithStyle(new Date(), DateTimeStyle.FULL); // Tuesday, June 13, 2017
-DateTimeUtils.formatWithStyle(new Date(), DateTimeStyle.LONG); // June 13, 2017
-DateTimeUtils.formatWithStyle(new Date(), DateTimeStyle.MEDIUM); // Jun 13, 2017
-DateTimeUtils.formatWithStyle(new Date(), DateTimeStyle.SHORT); // 06/13/17
+DateTime.formatWithStyle(new Date(), DateTimeStyle.FULL); // Tuesday, June 13, 2017
+DateTime.formatWithStyle(new Date(), DateTimeStyle.LONG); // June 13, 2017
+DateTime.formatWithStyle(new Date(), DateTimeStyle.MEDIUM); // Jun 13, 2017
+DateTime.formatWithStyle(new Date(), DateTimeStyle.SHORT); // 06/13/17
 ```
 
 #### Date string to localized date
 
 ```java
-DateTimeUtils.formatWithStyle("2017-06-13", DateTimeStyle.FULL); // Tuesday, June 13, 2017
-DateTimeUtils.formatWithStyle("2017-06-13", DateTimeStyle.LONG); // June 13, 2017
-DateTimeUtils.formatWithStyle("2017-06-13", DateTimeStyle.MEDIUM); // Jun 13, 2017
-DateTimeUtils.formatWithStyle("2017-06-13", DateTimeStyle.SHORT); // 06/13/17
+DateTime.formatWithStyle("2017-06-13", DateTimeStyle.FULL); // Tuesday, June 13, 2017
+DateTime.formatWithStyle("2017-06-13", DateTimeStyle.LONG); // June 13, 2017
+DateTime.formatWithStyle("2017-06-13", DateTimeStyle.MEDIUM); // Jun 13, 2017
+DateTime.formatWithStyle("2017-06-13", DateTimeStyle.SHORT); // 06/13/17
 ```
 
 ### formatWithPattern
@@ -98,13 +99,13 @@ DateTimeUtils.formatWithStyle("2017-06-13", DateTimeStyle.SHORT); // 06/13/17
 #### Date string as source
 
 ```java
-DateTimeUtils.formatWithPattern("2017-06-13", "EEEE, MMMM dd, yyyy"); // Tuesday, June 13, 2017
+DateTime.formatWithPattern("2017-06-13", "EEEE, MMMM dd, yyyy"); // Tuesday, June 13, 2017
 ```
 
 #### Date object as source
 
 ```java
-DateTimeUtils.formatWithPattern(new Date(), "EEEE, MMMM dd, yyyy"); // Tuesday, June 13, 2017
+DateTime.formatWithPattern(new Date(), "EEEE, MMMM dd, yyyy"); // Tuesday, June 13, 2017
 ```
 
  ### isToday
@@ -113,9 +114,9 @@ DateTimeUtils.formatWithPattern(new Date(), "EEEE, MMMM dd, yyyy"); // Tuesday, 
 
 ```java
 // Date object as source
-boolean state = DateTimeUtils.isToday(new Date());
+boolean state = DateTime.isToday(new Date());
 // Date String as source
-boolean state = DateTimeUtils.isToday("2017-06-15 04:14:49");
+boolean state = DateTime.isToday("2017-06-15 04:14:49");
 ```
 
 ### isYesterday
@@ -124,9 +125,9 @@ boolean state = DateTimeUtils.isToday("2017-06-15 04:14:49");
 
 ```java
 // Date object as source
-boolean state = DateTimeUtils.isYesterday(new Date());
+boolean state = DateTime.isYesterday(new Date());
 // Date String as source
-boolean state = DateTimeUtils.isYestrday("2017-06-15 04:14:49");
+boolean state = DateTime.isYestrday("2017-06-15 04:14:49");
 ```
 ### Get Previous next Week
 
@@ -134,9 +135,9 @@ boolean state = DateTimeUtils.isYestrday("2017-06-15 04:14:49");
 
 ```java
 // Date object as source
-Date date = DateTimeUtils.getPreviousWeekDate(new Date(), Calendar.MONDAY);
+Date date = DateTime.getPreviousWeekDate(new Date(), Calendar.MONDAY);
 // Date String as source
-Date date = DateTimeUtils.getNextWeekDate("2017-06-15 04:14:49",Calendar.SUNDAY);
+Date date = DateTime.getNextWeekDate("2017-06-15 04:14:49",Calendar.SUNDAY);
 
 ```
 ### Get Previous next month
@@ -145,9 +146,9 @@ Date date = DateTimeUtils.getNextWeekDate("2017-06-15 04:14:49",Calendar.SUNDAY)
 
 ```java
 // Date object as source
-Date date = DateTimeUtils.getNextMonthDate(new Date());
+Date date = DateTime.getNextMonthDate(new Date());
 // Date String as source
-Date date = DateTimeUtils.getPreviousMonthDate("2017-06-15 04:14:49");
+Date date = DateTime.getPreviousMonthDate("2017-06-15 04:14:49");
 
 ```
 ### getDateDiff
@@ -159,15 +160,15 @@ Date date = DateTimeUtils.getPreviousMonthDate("2017-06-15 04:14:49");
 Date date = new Date();
 String date2 = "2017-06-13 04:14:49";
 // Get difference in milliseconds
-int diff = DateTimeUtils.getDateDiff(date,date2, DateTimeUnits.MILLISECONDS);
+int diff = DateTime.getDateDiff(date,date2, DateTimeUnits.MILLISECONDS);
 // Get difference in seconds
-int diff = DateTimeUtils.getDateDiff(date,date2, DateTimeUnits.SECONDS);
+int diff = DateTime.getDateDiff(date,date2, DateTimeUnits.SECONDS);
 // Get difference in minutes
-int diff = DateTimeUtils.getDateDiff(date,date2, DateTimeUnits.MINUTES);
+int diff = DateTime.getDateDiff(date,date2, DateTimeUnits.MINUTES);
 // Get difference in hours
-int diff = DateTimeUtils.getDateDiff(date,date2, DateTimeUnits.HOURS);
+int diff = DateTime.getDateDiff(date,date2, DateTimeUnits.HOURS);
 // Get difference in days
-int diff = DateTimeUtils.getDateDiff(date,date2, DateTimeUnits.DAYS);
+int diff = DateTime.getDateDiff(date,date2, DateTimeUnits.DAYS);
 ```
 
 ### getTimeAgo
@@ -175,9 +176,9 @@ int diff = DateTimeUtils.getDateDiff(date,date2, DateTimeUnits.DAYS);
 ``getTimeAgo`` give ou the elapsed time since a given date, it also offer two print mode the full and short strings ``eg . 3 hours ago | 3h ago`` the strings are localized but at the moment only FR and EN language are available. If you need your langage to be add just let me know :)
 
 ```java
-String timeAgo = DateTimeUtils.getTimeAgo(context,new Date()); // Full string style will be used
+String timeAgo = DateTime.getTimeAgo(context,new Date()); // Full string style will be used
 // Short string style
-String timeAgo = DateTimeUtils.getTimeAgo(context,"new Date()",DateTimeStyle.AGO_SHORT_STRING ); 
+String timeAgo = DateTime.getTimeAgo(context,"new Date()",DateTimeStyle.AGO_SHORT_STRING ); 
 ```
 
 ### formatTime
@@ -185,11 +186,11 @@ String timeAgo = DateTimeUtils.getTimeAgo(context,"new Date()",DateTimeStyle.AGO
 ``formatTime`` allow you to extract time from date by default it wont show the hours if equal to ``0`` but you can supply ``forceShowHours`` parameter to force hours display
 
 ```java
-String time = DateTimeUtils.formatTime(new Date()); // 14:49 if hours equals 0 or 04:14:09 if hours witch is wrong when use it on time rather than a duration
+String time = DateTime.formatTime(new Date()); // 14:49 if hours equals 0 or 04:14:09 if hours witch is wrong when use it on time rather than a duration
 // Solution >> force hours display
-String time = DateTimeUtils.formatTime(new Date(),true);
+String time = DateTime.formatTime(new Date(),true);
 // And you can also supplie a date string
-String time = DateTimeUtils.formatTime("2017-06-13 04:14:49"); // 04:14:49
+String time = DateTime.formatTime("2017-06-13 04:14:49"); // 04:14:49
 ```
 
 ### millisToTime
@@ -197,7 +198,7 @@ String time = DateTimeUtils.formatTime("2017-06-13 04:14:49"); // 04:14:49
 ``millisToTime`` is usefull when your dealing with duration and want to display for example player duration or current playback position into human readable value.
 
 ```java
-String time = DateTimeUtils.millisToTime(2515); // It take millis as an argument not seconds
+String time = DateTime.millisToTime(2515); // It take millis as an argument not seconds
 ```
 
 ### timeToMillis
@@ -205,7 +206,7 @@ String time = DateTimeUtils.millisToTime(2515); // It take millis as an argument
 ``timeToMillis`` allow to convert ``time`` string to ``millseconds`` 
 
 ```java
-int milliseconds = DateTimeUtils.timeToMillis("14:20"); // 860000
+int milliseconds = DateTime.timeToMillis("14:20"); // 860000
 ```
 
 
@@ -213,7 +214,7 @@ int milliseconds = DateTimeUtils.timeToMillis("14:20"); // 860000
 ## Author 
 
 - **Thunder413** (https://github.com/thunder413)
-- **Augustusiam** (https://github.com/augustusiam)
+- **Edited by Augustusiam** (https://github.com/augustusiam)
 
 ## License
 
